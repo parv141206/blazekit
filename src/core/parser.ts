@@ -15,7 +15,7 @@ import {
   RCurly,
   StringType,
 } from "./lexer";
-import { BColors } from "./constants";
+import { BColors } from "../constants";
 
 // TODO: Make this more structured, its an eyesore
 class BlazeParser extends CstParser {

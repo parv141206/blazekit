@@ -1,5 +1,12 @@
-export type ExpectedToken = {
-  LABEL?: string;
+export interface BlazeField {
   name: string;
-  pattern?: RegExp;
-};
+  type: string;
+}
+
+export interface BlazeModel {
+  type: "Model";
+  name: string;
+  fields: BlazeField[];
+}
+
+export type ASTNode = BlazeModel[];
