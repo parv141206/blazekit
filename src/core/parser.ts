@@ -16,6 +16,7 @@ import {
   StringType,
 } from "./lexer";
 import { BColors } from "../constants";
+import { logError } from "../cli/messages";
 
 // TODO: Make this more structured, its an eyesore
 class BlazeParser extends CstParser {
@@ -66,15 +67,7 @@ export function parseBlazeSchema(text: string): CstNode {
     const token = err.token;
     const c = new BColors();
     // TODO: remove anger
-    console.log(
-      c.FAIL +
-        c.BOLD +
-        `\n
-╭──────────────────────╮
-│  HOLY SHIT AN ERROR  │
-╰──────────────────────╯\n` +
-        c.ENDC,
-    );
+    logError();
 
     if (token) {
       const friendlyMessage =

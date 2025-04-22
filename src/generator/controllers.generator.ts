@@ -60,8 +60,8 @@ export function writeControllers(
   }
 
   const filePath = path.join(dir, `${typeName}.controller.ts`);
-
   fs.writeFileSync(filePath, content, "utf8");
 
-  console.log(`✅ Wrote controller to ${filePath}`);
+  const relativePath = path.relative(process.cwd(), filePath);
+  console.log(`\t\t-> Wrote controller to ${relativePath}`);
 }

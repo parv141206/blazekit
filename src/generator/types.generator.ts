@@ -41,8 +41,8 @@ export function writeTypes(
   }
 
   const filePath = path.join(dir, `${typeName}.ts`);
-
   fs.writeFileSync(filePath, content, "utf8");
 
-  console.log(`✅ Wrote types to ${filePath}`);
+  const relativePath = path.relative(process.cwd(), filePath);
+  console.log(`\t\t-> Wrote types to ${relativePath}`);
 }

@@ -3,6 +3,7 @@ import { BlazeConfig } from "./types";
 import { BColors } from "./constants";
 import path from "path";
 import fs from "fs";
+import { logError, logSuccess } from "./cli/messages";
 /**
  * Loads the `.blazerc` configuration file synchronously from the project root.
  *
@@ -30,16 +31,10 @@ export function loadConfigSync(): BlazeConfig {
   const result = explorer.search();
 
   if (!result) {
+    logError();
     const configMissingMessage =
       `
-        ${c.FAIL} 
-        ${c.BOLD} 
-╭──────────────────────╮
-│  HOLY SHIT AN ERROR  │
-╰──────────────────────╯ 
-        ${c.ENDC}
-      ${c.WARNING}${c.BOLD}\n` +
-      `No .blazerc file found in the project root.\n` +
+       No .blazerc file found in the project root.\n` +
       `BlazeKit requires a .blazerc configuration file to generate types, controllers, and API routes.\n\n` +
       `Please create a .blazerc file in the root of your project with the following structure:\n\n` +
       `${c.OKBLUE}` +
@@ -68,19 +63,12 @@ export function loadConfigSync(): BlazeConfig {
  * The function writes a `.blazerc` file to the root directory containing default configurations for BlazeKit.
  */
 export function createSampleConfig() {
-  const c = new BColors();
   const configPath = path.resolve(process.cwd(), ".blazerc");
 
   if (fs.existsSync(configPath)) {
+    logError();
     console.log(
-      c.FAIL +
-        c.BOLD +
-        `\n
-╭──────────────────────╮
-│  HOLY SHIT AN ERROR  │
-╰──────────────────────╯\n` +
-        c.ENDC +
-        `The .blazerc file already exists in the root of your project.\n`,
+      `The .blazerc file already exists in the root of your project.\n`,
     );
     return;
   }
@@ -94,16 +82,9 @@ export function createSampleConfig() {
   };
 
   fs.writeFileSync(configPath, JSON.stringify(sampleConfig, null, 2));
-
+  logSuccess();
   console.log(
-    c.OKGREEN +
-      c.BOLD +
-      `\n
-╭──────────────────────╮
-│  SUCCESS!            │
-╰──────────────────────╯\n` +
-      c.ENDC +
-      `The .blazerc configuration file has been created in the root directory.\n` +
+    `The .blazerc configuration file has been created in the root directory.\n` +
       `You can now customize it for your project!\n`,
   );
 }

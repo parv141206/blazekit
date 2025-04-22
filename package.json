@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && sudo npm link",
     "dev": "ts-node src/index.ts",
     "compile": "ts-node src/cli/index.ts"
   },
