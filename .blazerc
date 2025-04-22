@@ -1,0 +1,7 @@
+{
+  "database": "mongo",
+  "databaseName": "your_database_name",
+  "typesOutputDir": "src/types",
+  "controllersOutputDir": "src/controllers",
+  "apiRoutesOutputDir": "src/app/api"
+}

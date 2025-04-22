@@ -10,25 +10,22 @@ import fs from "fs";
 import path from "path";
 
 /**
- * Currently hardcoded to "mongo", but in future will be dynamically read from blaze.config.
- */
-export const database = "mongo";
-
-/**
- * Placeholder for the database name — should eventually come from blaze.config.
- */
-export const databaseName = "temp";
-
-/**
  * Generates the controller code for a given model based on the selected database.
  *
  * @param model - The BlazeModel object containing the model's name and fields.
+ * @param database - The database (such as mongo)
+ * @param databaseName - The database name
+ *
  * @returns A string containing the full controller code for that model.
  *
  * @throws Will throw an error if the selected database is unsupported.
  *
  */
-export function generateControllers(model: BlazeModel): string {
+export function generateControllers(
+  model: BlazeModel,
+  database: string,
+  databaseName: string,
+): string {
   let controllerCode = "";
 
   switch (database) {
@@ -45,20 +42,25 @@ export function generateControllers(model: BlazeModel): string {
 }
 
 /**
- * Writes the generated controller code to a file
+ * Writes the generated controller code to a file.
  *
- * @param typeName - The name of the model
- * @param content - The controller code string to be written to the file.
- *
+ * @param typeName The name of the model (used for the controller file name).
+ * @param content The controller code to be written to the file.
+ * @param controllersOutputDirectory The directory where the controller file should be saved.
  */
-export function writeControllers(typeName: string, content: string): void {
-  const dir = path.join("test", "controllers");
+export function writeControllers(
+  typeName: string,
+  content: string,
+  controllersOutputDirectory: string,
+): void {
+  const dir = path.resolve(controllersOutputDirectory);
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
 
   const filePath = path.join(dir, `${typeName}.controller.ts`);
+
   fs.writeFileSync(filePath, content, "utf8");
 
   console.log(`✅ Wrote controller to ${filePath}`);

@@ -23,18 +23,25 @@ export interface ${typeName} {
 }
 
 /**
- * Writes "types" string to a `.ts` file.
- * @param typeName - The name of the file/model (same thing for now)
- * @param content - The TypeScript interface string to write
+ * Writes the provided content to a TypeScript file in the specified directory.
+ *
+ * @param typeName The name of the type file to be created.
+ * @param content The TypeScript content to write into the file.
+ * @param typesOutputDirectory The directory where the type file should be saved.
  */
-export function writeTypes(typeName: string, content: string): void {
-  const dir = path.join("test", "types");
+export function writeTypes(
+  typeName: string,
+  content: string,
+  typesOutputDirectory: string,
+): void {
+  const dir = path.resolve(typesOutputDirectory);
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
 
   const filePath = path.join(dir, `${typeName}.ts`);
+
   fs.writeFileSync(filePath, content, "utf8");
 
   console.log(`✅ Wrote types to ${filePath}`);

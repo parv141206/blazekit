@@ -5,21 +5,29 @@
  *
  * @author parv141206
  */
-import { ASTNode, BlazeModel } from "../types";
+import { ASTNode, BlazeConfig, BlazeModel } from "../types";
 import { generateControllers, writeControllers } from "./controllers.generator";
 import { generateTypes, writeTypes } from "./types.generator";
 
-export function generate(ast: ASTNode) {
+export function generate(ast: ASTNode, blazeConfig: BlazeConfig) {
   // Looping through each model (only model for now)
   ast.forEach((model: BlazeModel) => {
     // For now, this condition is always true, but well, i am still adding it
     if (model.type === "Model") {
       // TYPES
       const types = generateTypes(model.name, model.fields);
-      writeTypes(model.name, types);
+      writeTypes(model.name, types, blazeConfig.typesOutputDir);
       // CONTROLLERS
-      const controllers = generateControllers(model);
-      writeControllers(model.name, controllers);
+      const controllers = generateControllers(
+        model,
+        blazeConfig.database,
+        blazeConfig.databaseName,
+      );
+      writeControllers(
+        model.name,
+        controllers,
+        blazeConfig.controllersOutputDir,
+      );
     }
   });
 }
