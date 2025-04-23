@@ -1,6 +1,13 @@
 export interface BlazeField {
   name: string;
   type: string;
+  /**
+   * Following are prisma specific for now:
+   */
+  optional?: boolean;
+  isId?: boolean;
+  isUnique?: boolean;
+  default?: boolean;
 }
 
 export interface BlazeModel {

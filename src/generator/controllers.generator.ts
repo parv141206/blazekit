@@ -4,10 +4,18 @@
  * @author parv141206
  *
  */
+
 import { BlazeModel } from "../types";
 import { generateMongoController } from "./templates/mongo";
 import fs from "fs";
 import path from "path";
+import { generatePostgresController } from "./templates/postgres";
+import { generateFirebaseClientController } from "./templates/firebase";
+import { generateSQLiteController } from "./templates/sqlite";
+import {
+  generatePrismaController,
+  generatePrismaSchema,
+} from "./templates/prisma";
 
 /**
  * Generates the controller code for a given model based on the selected database.
@@ -19,7 +27,6 @@ import path from "path";
  * @returns A string containing the full controller code for that model.
  *
  * @throws Will throw an error if the selected database is unsupported.
- *
  */
 export function generateControllers(
   model: BlazeModel,
@@ -32,8 +39,30 @@ export function generateControllers(
     case "mongo":
       controllerCode = generateMongoController(model, databaseName);
       break;
+    case "postgres":
+      controllerCode = generatePostgresController(model);
+      break;
+    case "firebase":
+      controllerCode = generateFirebaseClientController(model);
+      break;
+    case "sqlite":
+      controllerCode = generateSQLiteController(model);
+      break;
+    case "prisma":
+      controllerCode = generatePrismaController(model);
 
-    // I'll add others later
+      const schemaCode = generatePrismaSchema(model);
+      const schemaFilePath = path.resolve("src/prisma/schema.prisma");
+
+      if (!fs.existsSync(path.dirname(schemaFilePath))) {
+        fs.mkdirSync(path.dirname(schemaFilePath), { recursive: true });
+      }
+
+      fs.appendFileSync(schemaFilePath, schemaCode + "\n\n");
+      console.log(`\t\t-> Appended Prisma schema to src/prisma/schema.prisma`);
+
+      break;
+
     default:
       throw new Error(`Unsupported database: ${database}`);
   }
