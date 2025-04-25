@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@layer theme, base, components, utilities;
+
+@layer utilities {
+  .bg-with-noise {
+    position: relative;
+    background-color: #fefefe;
+    z-index: 0;
+  }
+
+  .dark .bg-with-noise {
+    background-color: #080808;
+  }
+
+  .bg-with-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/noise.png");
+    opacity: 0.9;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .dark .bg-with-noise::before {
+    opacity: 0.2;
+  }
+}
