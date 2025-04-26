@@ -1,12 +1,67 @@
 "use client";
 
-import Flare from "@/components/Flare";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import Flare from "@/components/Branding/Flare";
 import Image from "next/image";
-import React from "react";
-import { motion } from "motion/react";
-import { AnimatedLetters } from "@/components/AnimatedLetters";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { AnimatedLetters } from "@/components/Branding/AnimatedLetters";
+import BlazeSchemaSection from "@/components/Branding/BlazeSchemaSection";
+import RunningCommandSection from "@/components/Branding/RunningCommandSection";
+import ShowOutputSection from "@/components/Branding/ShowOutputSection";
+import CreateConfigSection from "@/components/Branding/CreateConfigSection";
 
+const HorizontalScrollSection = () => {
+  const containerRef = useRef(null);
+  const horizontalContentRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const numberOfItems = 3;
+  const translationDistance = -(numberOfItems - 1) * 100;
+
+  const xTranslation = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [`0vw`, `${translationDistance}vw`],
+  );
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        height: "500vh",
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <motion.div
+          ref={horizontalContentRef}
+          style={{
+            display: "flex",
+            x: xTranslation,
+          }}
+        >
+          <CreateConfigSection />
+          <BlazeSchemaSection />
+          <RunningCommandSection />
+          <ShowOutputSection />
+        </motion.div>
+      </div>
+    </div>
+  );
+};
 const blazeKitTaglines = [
   "One file. Infinite firepower. Meet schema.blaze.",
   "Fuel your project from a single spark — schema.blaze.",
@@ -16,6 +71,12 @@ const blazeKitTaglines = [
   "Light the fuse — everything starts with schema.blaze.",
 ];
 export default function Home() {
+  const hero = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: hero,
+    offset: ["start end", "end start"],
+  });
+  const adjustedScale = useTransform(scrollYProgress, (value) => value + 0.5);
   return (
     <main>
       <Flare
@@ -23,9 +84,10 @@ export default function Home() {
           height: "180vh",
           width: "100vw",
           position: "fixed",
-          top: "-110vh",
+          //@ts-ignore
+          scale: adjustedScale,
+          top: `-${110}vh`,
           right: "10vw",
-          scale: "1.2",
           filter: "blur(30px)",
           rotate: "145deg",
           zIndex: -1,
@@ -38,7 +100,9 @@ export default function Home() {
           position: "fixed",
           top: "-110vh",
           right: "0vw",
-          scale: "1.2",
+          //@ts-ignore
+          scale: adjustedScale,
+
           filter: "blur(10px)",
           rotate: "145deg",
           zIndex: -1,
@@ -48,7 +112,10 @@ export default function Home() {
         }}
       />
 
-      <section className="h-screen relative z-10 w-full flex flex-col items-center justify-center">
+      <section
+        ref={hero}
+        className="h-screen z-10 w-full relative flex flex-col items-center justify-center"
+      >
         <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 30, filter: "blur(30px)" }}
           animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
@@ -88,8 +155,9 @@ export default function Home() {
           Scroll to know more
         </motion.div>
       </section>
+      <HorizontalScrollSection />
 
-      <ThemeToggle />
+      <section className="h-[500vh]"></section>
     </main>
   );
 }

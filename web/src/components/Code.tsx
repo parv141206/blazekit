@@ -1,0 +1,29 @@
+import React from "react";
+
+export default function Code({
+  code,
+  fileName,
+}: {
+  code: string;
+  fileName: string;
+}) {
+  return (
+    <div className="bg-with-noise rounded-md min-w-80 flex flex-col drop-shadow-2xl w-fit drop-shadow-black dark:text-gray-400">
+      <div className="flex items-center ">
+        <div className="flex gap-1 m-3 absolute">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div key={index} className="w-3 h-3 bg-gray-800 rounded-full"></div>
+          ))}
+        </div>
+        <div className="flex items-center text-sm justify-center w-full py-1 pt-1.5">
+          {fileName}
+        </div>
+      </div>
+
+      <hr className="text-gray-800" />
+      <pre className="p-5">
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+}
