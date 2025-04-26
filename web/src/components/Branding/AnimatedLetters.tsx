@@ -68,7 +68,7 @@ export const AnimatedLetters = ({
             <motion.span
               key={letterIndex}
               variants={letterVariants}
-              className={`${title ? "text-9xl" : "text-xl"} select-none ${letterClassName}`}
+              className={`${title ? "md:text-9xl text-5xl" : "text-xl"} select-none ${letterClassName}`}
               style={{
                 display: "inline-block",
                 perspective: "1000px",

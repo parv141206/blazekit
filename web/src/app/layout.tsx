@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/context/theme";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata = {
   title: "BlazeKit",
@@ -12,9 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-with-noise">
         <ThemeProvider>
-          <main className="bg-with-noise min-h-screen">{children}</main>
+          <Navbar />
+          <main className=" min-h-screen">{children}</main>
         </ThemeProvider>
       </body>
     </html>
