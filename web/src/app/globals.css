@@ -1,7 +1,14 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @layer theme, base, components, utilities;
-
+@font-face {
+  font-family: "Boughy";
+  src: url("/BoughyFree.otf");
+}
+@font-face {
+  font-family: "Futura";
+  src: url("/futura/futura.ttf");
+}
 @layer utilities {
   .bg-with-noise {
     position: relative;
@@ -10,7 +17,7 @@
   }
 
   .dark .bg-with-noise {
-    background-color: #080808;
+    background-color: #000000;
   }
 
   .bg-with-noise::before {
@@ -24,6 +31,39 @@
   }
 
   .dark .bg-with-noise::before {
-    opacity: 0.2;
+    opacity: 0.8;
   }
+}
+#flare {
+  scale: 1.2;
+  filter: blur(30px);
+  rotate: 145deg;
+  background: radial-gradient(
+    240vh 20vw at top right,
+    red,
+    blue,
+    red,
+    #ff450090,
+    #ffff0010,
+    transparent,
+    transparent
+  );
+}
+#flare-2 {
+  scale: 1.2;
+  filter: blur(10px);
+  rotate: 145deg;
+  background: radial-gradient(
+    240vh 5vw at top right,
+    #ff4500,
+    red,
+    transparent,
+    transparent
+  );
+}
+.title {
+  font-family: "Boughy";
+}
+body {
+  font-family: "Futura", monospace;
 }
