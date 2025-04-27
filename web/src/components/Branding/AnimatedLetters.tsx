@@ -9,6 +9,7 @@ interface AnimatedLettersProps {
   letterClassName?: string;
   withBlur?: boolean;
   title?: boolean;
+  center?: boolean;
 }
 
 const letterVariants = {
@@ -48,12 +49,13 @@ export const AnimatedLetters = ({
   letterClassName = "",
   withBlur = true,
   title,
+  center,
 }: AnimatedLettersProps) => {
   const words = useMemo(() => (text ?? "").split(" "), [text]);
 
   return (
     <motion.div
-      className={`flex flex-wrap text-white items-start justify-start gap-x-2 ${className}`}
+      className={`flex flex-wrap text-white ${center ? "items-center justify-center" : "items-start justify-start"} gap-x-2 ${className}`}
       variants={containerVariants}
       initial="hidden"
       animate="visible"

@@ -110,7 +110,7 @@ const HorizontalScrollSection = () => {
 
 const blazeKitTaglines = [
   "One file. Infinite firepower. Meet schema.blaze.",
-  "Fuel your project from a single spark — schema.blaze.",
+  "Fuel your project from a single spark — schema.blaze",
   "Define once. Blaze infinitely. Powered by schema.blaze.",
   "From zero to blazing fast — all from schema.blaze.",
   "Your entire stack. Ignited by one file: schema.blaze.",

@@ -13,7 +13,8 @@
 @layer utilities {
   .bg-with-noise {
     position: relative;
-    background-color: #fefefe;
+    /*fuck it , we use dark mode */
+    background-color: #000000;
     z-index: 0;
   }
 

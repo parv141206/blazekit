@@ -21,7 +21,7 @@ export const docsStructure: DocsSection[] = [
     ],
   },
   {
-    title: "Concepts",
+    title: "Concepts & Supported Services",
     path: "/docs/concepts",
     children: [
       { title: "Schema Format", path: "/docs/concepts/schema-format" },
@@ -38,69 +38,69 @@ export const docsStructure: DocsSection[] = [
     ],
   },
 
-  {
-    title: "Usage",
-    path: "/docs/usage",
-    children: [
-      { title: "Running BlazeKit", path: "/docs/usage/running" },
-      { title: "Customizing Output", path: "/docs/usage/customizing-output" },
-      { title: "Partial Generation", path: "/docs/usage/partial-generation" },
-    ],
-  },
-  {
-    title: "Advanced",
-    path: "/docs/advanced",
-    children: [
-      {
-        title: "Extending BlazeKit",
-        path: "/docs/advanced/extending-blazekit",
-      },
-      {
-        title: "Custom Database Support",
-        path: "/docs/advanced/custom-database-support",
-      },
-    ],
-  },
-  {
-    title: "FAQs",
-    path: "/docs/faqs",
-    children: [
-      { title: "Common Errors", path: "/docs/faqs/common-errors" },
-      { title: "Troubleshooting", path: "/docs/faqs/troubleshooting" },
-      { title: "Tips & Tricks", path: "/docs/faqs/tips-tricks" },
-    ],
-  },
-  {
-    title: "Contributing",
-    path: "/docs/contributing",
-    children: [
-      {
-        title: "How to Contribute",
-        path: "/docs/contributing/how-to-contribute",
-      },
-      { title: "Code Structure", path: "/docs/contributing/code-structure" },
-      {
-        title: "Development Setup",
-        path: "/docs/contributing/development-setup",
-      },
-    ],
-  },
-  {
-    title: "Changelog",
-    path: "/docs/changelog",
-    children: [
-      { title: "Releases", path: "/docs/changelog/releases" },
-      { title: "Migration Guides", path: "/docs/changelog/migration-guides" },
-    ],
-  },
-  {
-    title: "About",
-    path: "/docs/about",
-    children: [
-      { title: "Creator", path: "/docs/about/creator" },
-      { title: "License", path: "/docs/about/license" },
-    ],
-  },
+  //{
+  //  title: "Usage",
+  //  path: "/docs/usage",
+  //  children: [
+  //    { title: "Running BlazeKit", path: "/docs/usage/running" },
+  //    { title: "Customizing Output", path: "/docs/usage/customizing-output" },
+  //    { title: "Partial Generation", path: "/docs/usage/partial-generation" },
+  //  ],
+  //},
+  //{
+  //  title: "Advanced",
+  //  path: "/docs/advanced",
+  //  children: [
+  //    {
+  //      title: "Extending BlazeKit",
+  //      path: "/docs/advanced/extending-blazekit",
+  //    },
+  //    {
+  //      title: "Custom Database Support",
+  //      path: "/docs/advanced/custom-database-support",
+  //    },
+  //  ],
+  //},
+  //{
+  //  title: "FAQs",
+  //  path: "/docs/faqs",
+  //  children: [
+  //    { title: "Common Errors", path: "/docs/faqs/common-errors" },
+  //    { title: "Troubleshooting", path: "/docs/faqs/troubleshooting" },
+  //    { title: "Tips & Tricks", path: "/docs/faqs/tips-tricks" },
+  //  ],
+  //},
+  //{
+  //  title: "Contributing",
+  //  path: "/docs/contributing",
+  //  children: [
+  //    {
+  //      title: "How to Contribute",
+  //      path: "/docs/contributing/how-to-contribute",
+  //    },
+  //    { title: "Code Structure", path: "/docs/contributing/code-structure" },
+  //    {
+  //      title: "Development Setup",
+  //      path: "/docs/contributing/development-setup",
+  //    },
+  //  ],
+  //},
+  //{
+  //  title: "Changelog",
+  //  path: "/docs/changelog",
+  //  children: [
+  //    { title: "Releases", path: "/docs/changelog/releases" },
+  //    { title: "Migration Guides", path: "/docs/changelog/migration-guides" },
+  //  ],
+  //},
+  //{
+  //  title: "About",
+  //  path: "/docs/about",
+  //  children: [
+  //    { title: "Creator", path: "/docs/about/creator" },
+  //    { title: "License", path: "/docs/about/license" },
+  //  ],
+  //},
 ];
 
 export default function DocsSidebar() {
