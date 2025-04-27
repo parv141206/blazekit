@@ -20,7 +20,7 @@ export default function Navbar() {
   ];
   return (
     <>
-      <nav className="sticky bg-texture  bg-texture-light dark:bg-texture-dark  md:flex hidden top-0 left-0 right-0 z-50  flex-row items-center justify-center text-foreground gap-8 py-4 backdrop-blur-md border-border/20 shadow-lg shadow-black/10 dark:shadow-black/45">
+      <nav className="sticky text-white md:flex hidden top-0 left-0 right-0 z-50  flex-row items-center justify-center gap-8 py-4 backdrop-blur-2xl border-border/20 shadow-lg shadow-black/10 dark:shadow-black/45">
         <div className=" pointer-events-none font-bold ">
           <Image
             src={"/logo.svg"}
@@ -44,16 +44,15 @@ export default function Navbar() {
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
-              variant="outline"
               size="icon"
-              className="fixed bg-texture-light dark:bg-texture-dark  top-4 left-4 z-50 border border-border/50"
+              className="fixed bg-black top-4 left-4 z-50 border border-border/50"
             >
-              <IoMenuOutline className="h-6 w-6" />
+              <IoMenuOutline className="h-6 w-6  text-white" />
             </Button>
           </SheetTrigger>
           <SheetContent
             side="left"
-            className="w-64 flex flex-col bg-texture-light dark:bg-texture-dark border-r border-border/50"
+            className="w-64 flex flex-col p-5 bg-black/50 text-white backdrop-blur-2xl border-r border-border/50"
           >
             <VisuallyHidden.Root>
               <SheetTitle>Menu</SheetTitle>
@@ -65,7 +64,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium hover:bg-accent hover:text-accent-foreground p-2 rounded-md transition-colors"
+                    className="text-lg font-medium hover:bg-accent text-white p-2 rounded-md transition-colors"
                   >
                     {item.label}
                   </Link>

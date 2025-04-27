@@ -8,7 +8,7 @@ export default function Code({
   fileName: string;
 }) {
   return (
-    <div className="bg-with-noise rounded-md min-w-80 flex flex-col drop-shadow-2xl w-fit drop-shadow-black dark:text-gray-400">
+    <div className="bg-with-noise rounded-md min-w-80 flex flex-col drop-shadow-2xl w-fit drop-shadow-black dark:text-gray-400 md:text-lg text-[0.7rem]">
       <div className="flex items-center ">
         <div className="flex gap-1 m-3 absolute">
           {Array.from({ length: 3 }).map((_, index) => (

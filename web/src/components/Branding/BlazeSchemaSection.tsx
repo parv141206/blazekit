@@ -4,7 +4,7 @@ import Step from "../Step";
 
 export default function BlazeSchemaSection() {
   return (
-    <div className="flex items-center justify-center flex-col dark:text-white gap-12 w-screen h-screen">
+    <div className="flex items-center justify-center flex-col dark:text-white gap-12 w-screen h-fit md:h-screen md:p-0 p-4">
       <div className="text-3xl text-center">
         It all starts with <br /> a single schema.blaze
       </div>

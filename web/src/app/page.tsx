@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { AnimatedLetters } from "@/components/Branding/AnimatedLetters";
 import BlazeSchemaSection from "@/components/Branding/BlazeSchemaSection";
 import RunningCommandSection from "@/components/Branding/RunningCommandSection";
-import ShowOutputSection from "@/components/Branding/ShowOutputSection";
 import CreateConfigSection from "@/components/Branding/CreateConfigSection";
 import Code from "@/components/Code";
 import Card from "@/components/Card";
@@ -46,11 +45,10 @@ const HorizontalScrollSection = () => {
   if (isMobile) {
     return (
       <div className="py-8">
-        <div className="flex flex-col gap-24 px-4">
+        <div className="flex flex-col gap-24 md:px-4">
           <CreateConfigSection />
           <BlazeSchemaSection />
           <RunningCommandSection />
-          <ShowOutputSection />
         </div>
       </div>
     );
@@ -104,14 +102,6 @@ const HorizontalScrollSection = () => {
           >
             <RunningCommandSection />
           </motion.section>
-
-          <motion.section
-            initial={{ filter: "blur(40px)" }}
-            whileInView={{ filter: "blur(0px)" }}
-            transition={{ duration: 0.7 }}
-          >
-            <ShowOutputSection />
-          </motion.section>
         </motion.div>
       </div>
     </div>
@@ -156,7 +146,7 @@ export default function Home() {
           width: "100vw",
           position: "fixed",
           //@ts-ignore
-          scale: isMobile ? 0.5 : adjustedScale,
+          scale: isMobile ? 1 : adjustedScale,
           top: `-${isMobile ? 50 : 110}vh`,
           right: isMobile ? "0" : "10vw",
           filter: "blur(30px)",
@@ -172,7 +162,7 @@ export default function Home() {
           top: isMobile ? "-50vh" : "-110vh",
           right: "0vw",
           //@ts-ignore
-          scale: isMobile ? 0.5 : adjustedScale,
+          scale: isMobile ? 1 : adjustedScale,
           filter: "blur(10px)",
           rotate: "145deg",
           zIndex: -1,
@@ -199,7 +189,7 @@ export default function Home() {
           />
         </motion.div>
         <div
-          className={`absolute ${isMobile ? "top-4 left-4" : "top-10 left-10"}`}
+          className={`absolute ${isMobile ? "top-20 left-4" : "top-10 left-10"}`}
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -253,7 +243,11 @@ model Programmer {
 }`}
             fileName="schema.blaze"
           />
-          <div className={isMobile ? "text-5xl text-center py-4" : "text-9xl"}>
+          <div
+            className={
+              isMobile ? "text-5xl rotate-90 text-center py-4" : "text-9xl"
+            }
+          >
             {">"}
           </div>
           <div
