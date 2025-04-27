@@ -19,7 +19,7 @@ export default function Quickstart() {
         file that you can easily customize.
       </p>
 
-      <Code fileName="blazekit.config.json" code="blazekit --create-config" />
+      <Code fileName=".blazerc" code="npx blazekit --create-config" />
 
       <DocsTitle>Understanding the Configuration</DocsTitle>
       <p>
@@ -86,7 +86,7 @@ export default function Quickstart() {
         it using the following command:
       </p>
 
-      <Code fileName="Command" code="blazekit schema.blaze" />
+      <Code fileName="bash" code="npx blazekit schema.blaze" />
 
       <p>
         This command will compile your <code>schema.blaze</code> file and
@@ -106,10 +106,6 @@ export default function Quickstart() {
         previous={{
           title: "Installation",
           path: "/docs/getting-started/installation",
-        }}
-        next={{
-          title: "Example Project",
-          path: "/docs/getting-started/example-project",
         }}
       />
     </DocsContent>

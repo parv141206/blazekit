@@ -21,10 +21,7 @@ export default function Installation() {
       <DocsTitle>Install via npm</DocsTitle>
       <p>To get started, run the following command in your terminal:</p>
 
-      <Code
-        fileName="Installation Command"
-        code="npm install your-package-name" // Replace with the actual package name
-      />
+      <Code fileName="bash" code="npm install blazekit" />
 
       <DocsTitle>That's It!</DocsTitle>
       <p>

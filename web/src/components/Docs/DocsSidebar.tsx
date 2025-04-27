@@ -24,44 +24,20 @@ export const docsStructure: DocsSection[] = [
     title: "Concepts",
     path: "/docs/concepts",
     children: [
-      {
-        title: "How BlazeKit Works",
-        path: "/docs/concepts/how-blazekit-works",
-      },
       { title: "Schema Format", path: "/docs/concepts/schema-format" },
+      { title: "Types", path: "/docs/concepts/types" },
       {
         title: "Supported Databases",
         path: "/docs/concepts/supported-databases",
       },
       { title: "MongoDB", path: "/docs/concepts/mongodb" },
+      { title: "Firebase", path: "/docs/concepts/firebase" },
+      { title: "Postgresql", path: "/docs/concepts/postgresql" },
       { title: "Prisma", path: "/docs/concepts/prisma" },
-      { title: "Drizzle", path: "/docs/concepts/drizzle" },
-      { title: "Redis", path: "/docs/concepts/redis" },
+      { title: "SQLite", path: "/docs/concepts/sqlite" },
     ],
   },
-  {
-    title: "Configuration",
-    path: "/docs/configuration",
-    children: [
-      { title: "Config File", path: "/docs/configuration/config-file" },
-      { title: "CLI Options", path: "/docs/configuration/cli-options" },
-    ],
-  },
-  {
-    title: "Generators",
-    path: "/docs/generators",
-    children: [
-      { title: "TypeScript Types", path: "/docs/generators/typescript-types" },
-      {
-        title: "Database Controllers",
-        path: "/docs/generators/database-controllers",
-      },
-      {
-        title: "Next.js API Routes",
-        path: "/docs/generators/nextjs-api-routes",
-      },
-    ],
-  },
+
   {
     title: "Usage",
     path: "/docs/usage",

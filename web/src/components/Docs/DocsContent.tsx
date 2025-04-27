@@ -45,7 +45,7 @@ export function PreviousAndNext({
   };
 
   return (
-    <div className="flex p-10 justify-between gap-5">
+    <div className="flex p-10 md:flex-row flex-col justify-between gap-5">
       {previous ? (
         <Link href={previous.path} onClick={handleScrollToTop}>
           <PreviousAndNextCard title="Previous" content={previous.title} />

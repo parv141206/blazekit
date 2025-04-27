@@ -9,12 +9,16 @@ export function CodeElement({ children }: { children: string }) {
 export default function Code({
   code,
   fileName,
+  smaller,
 }: {
   code: string;
   fileName: string;
+  smaller?: boolean;
 }) {
   return (
-    <div className="bg-with-noise rounded-md min-w-80 flex flex-col drop-shadow-2xl w-fit drop-shadow-black dark:text-gray-400 md:text-lg text-[0.7rem]">
+    <div
+      className={`bg-with-noise rounded-md min-w-80 flex flex-col drop-shadow-2xl w-fit drop-shadow-black dark:text-gray-400 text-[0.7rem] ${smaller ? "md:text-[0.9rem]" : "md:text-lg"}`}
+    >
       <div className="flex items-center ">
         <div className="flex gap-1 m-3 absolute">
           {Array.from({ length: 3 }).map((_, index) => (
