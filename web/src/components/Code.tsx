@@ -1,5 +1,11 @@
 import React from "react";
-
+export function CodeElement({ children }: { children: string }) {
+  return (
+    <span className="bg-[#FF4F00] rounded-sm w-fit text-black px-2 mx-1">
+      {children}
+    </span>
+  );
+}
 export default function Code({
   code,
   fileName,

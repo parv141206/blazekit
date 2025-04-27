@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @layer theme, base, components, utilities;
@@ -7,7 +8,7 @@
 }
 @font-face {
   font-family: "Futura";
-  src: url("/futura/futura.ttf");
+  src: url("/futura/FuturaMedium.ttf");
 }
 @layer utilities {
   .bg-with-noise {
@@ -18,6 +19,9 @@
 
   .dark .bg-with-noise {
     background-color: #000000;
+  }
+  .dark .bg-accent-with-noise {
+    background: radial-gradient(circle at 10% 10%, #ff4f0020, black), #000000;
   }
 
   .bg-with-noise::before {
@@ -31,6 +35,20 @@
   }
 
   .dark .bg-with-noise::before {
+    opacity: 0.8;
+  }
+
+  .bg-accent-with-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/noise.png");
+    opacity: 0.9;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .dark .bg-accent-with-noise::before {
     opacity: 0.8;
   }
 }
@@ -65,9 +83,28 @@
   font-family: "Boughy";
 }
 body {
-  font-family: "Futura", monospace;
+  font-family: "Inter", monospace;
+}
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-[#060606];
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply rounded-xl bg-[#FF4F00];
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#FF4F00];
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
