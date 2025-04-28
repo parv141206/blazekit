@@ -1,19 +1,36 @@
 {
+  "name": "blazekit",
+  "version": "1.0.0",
+  "description": "A code generation tool for TypeScript, MongoDB, Prisma, Drizzle, and Redis.",
+  "main": "index.js",
   "bin": {
     "blazekit": "./dist/cli/index.js"
   },
-  "name": "blazekit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "keywords": [
+    "code-generation",
+    "typescript",
+    "cli",
+    "database",
+    "mongo",
+    "prisma",
+    "drizzle",
+    "redis"
+  ],
   "scripts": {
     "build": "tsc && sudo npm link",
     "dev": "ts-node src/index.ts",
     "compile": "ts-node src/cli/index.ts"
   },
-  "keywords": [],
-  "author": "",
+  "author": "parv141206",
   "license": "ISC",
+  "homepage": "https://blaze-kit.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parv141206/blazekit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parv141206/blazekit/issues"
+  },
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^22.14.1",
