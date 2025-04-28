@@ -1,7 +1,7 @@
 {
   "name": "blazekit",
-  "version": "1.0.0",
-  "description": "A code generation tool for TypeScript, MongoDB, Prisma, Drizzle, and Redis.",
+  "version": "1.0.1",
+  "description": "BlazeKit is a powerful tool for Next.js developers that streamlines database integration and project setup by generating TypeScript types, database controllers, and API routes. With BlazeKit, you can quickly create and manage your database models, making your development process faster and more efficient.",
   "main": "index.js",
   "bin": {
     "blazekit": "./dist/cli/index.js"
@@ -13,8 +13,9 @@
     "database",
     "mongo",
     "prisma",
-    "drizzle",
-    "redis"
+    "firebase",
+    "postgresql",
+    "sqlite"
   ],
   "scripts": {
     "build": "tsc && sudo npm link",
