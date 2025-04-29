@@ -17,7 +17,7 @@ export function generatePostgresController(
 // PostgreSQL Setup (auto-generated)
 // ------------------------------
 import { Pool } from "pg";
-import { ${modelName} } from "../types";
+import { ${modelName} } from "../types/${modelName}";
 
 const pool = new Pool({
   connectionString: process.env.${databaseUrlEnv},

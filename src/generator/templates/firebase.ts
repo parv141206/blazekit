@@ -26,7 +26,8 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { ${modelName} } from "../types";
+import { ${modelName} } from "../types/${modelName}";
+
 
 // ------------------------------
 // CRUD Operations for ${modelName}

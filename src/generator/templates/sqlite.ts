@@ -17,7 +17,8 @@ export function generateSQLiteController(
 // SQLite Setup (auto-generated)
 // ------------------------------
 import db from "${dbImportPath}";
-import { ${modelName} } from "../types";
+import { ${modelName} } from "../types/${modelName}";
+
 
 // ------------------------------
 // CRUD Operations for ${modelName}

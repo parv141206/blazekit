@@ -16,7 +16,8 @@ export function generateMongoController(
 // MongoDB Setup (auto-generated)
 // ------------------------------
 import { MongoClient, ObjectId } from "mongodb";
-import { ${modelName} } from "../types";
+import { ${modelName} } from "../types/${modelName}";
+
 
 const uri = process.env.MONGO_URI || "mongodb://localhost:27017";
 const databaseName = "${databaseName}";

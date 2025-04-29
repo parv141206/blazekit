@@ -1,6 +1,6 @@
 {
   "name": "blazekit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "BlazeKit is a powerful tool for Next.js developers that streamlines database integration and project setup by generating TypeScript types, database controllers, and API routes. With BlazeKit, you can quickly create and manage your database models, making your development process faster and more efficient.",
   "main": "index.js",
   "bin": {

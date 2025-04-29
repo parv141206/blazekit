@@ -16,6 +16,7 @@ import {
   generatePrismaController,
   generatePrismaSchema,
 } from "./templates/prisma";
+import { generateRedisController } from "./templates/redis";
 
 /**
  * Generates the controller code for a given model based on the selected database.
@@ -62,7 +63,9 @@ export function generateControllers(
       console.log(`\t\t-> Appended Prisma schema to src/prisma/schema.prisma`);
 
       break;
-
+    case "redis":
+      controllerCode = generateRedisController(model, databaseName);
+      break;
     default:
       throw new Error(`Unsupported database: ${database}`);
   }
