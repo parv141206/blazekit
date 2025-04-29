@@ -37,6 +37,9 @@ export default function SupportedDatabases() {
         <li>
           <strong>Prisma</strong> — Integration-ready support with Prisma ORM.
         </li>
+        <li>
+          <strong>Redis</strong> — Now supporting redis as well!
+        </li>
       </ul>
 
       <DocsTitle>How to Specify Database</DocsTitle>

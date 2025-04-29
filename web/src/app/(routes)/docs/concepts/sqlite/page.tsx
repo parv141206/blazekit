@@ -112,6 +112,10 @@ export function deleteUser(id: number) {
           title: "Prisma",
           path: "/docs/concepts/prisma",
         }}
+        next={{
+          title: "Redis",
+          path: "/docs/concepts/redis",
+        }}
       />
     </DocsContent>
   );

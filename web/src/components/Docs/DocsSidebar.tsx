@@ -35,6 +35,7 @@ export const docsStructure: DocsSection[] = [
       { title: "Postgresql", path: "/docs/concepts/postgresql" },
       { title: "Prisma", path: "/docs/concepts/prisma" },
       { title: "SQLite", path: "/docs/concepts/sqlite" },
+      { title: "Redis", path: "/docs/concepts/redis" },
     ],
   },
 
